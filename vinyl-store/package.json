@@ -8,6 +8,7 @@
   "scripts": {
     "build": "nest build",
     "start": "nest start",
+    "start:prod": "node dist/main",
     "start:dev": "nest start --watch",
     "migrate": "npx ts-node ./migrate/InitialSeed.ts"
   },
