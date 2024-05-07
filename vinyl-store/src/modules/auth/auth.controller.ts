@@ -1,15 +1,18 @@
 import {Controller, Get, Post, Req, Response, UseGuards} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {AuthService} from "./auth.service";
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
-
+  
+  @ApiTags('Google')
   @Get('google')
   @UseGuards(AuthGuard('google')) 
   async googleAuth(@Req() req) {} 
 
+  @ApiTags('Google')
   @Get('google/redirect')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req, @Response({passthrough: true}) res) {
@@ -22,6 +25,7 @@ export class AuthController {
       }
   }
 
+  @ApiTags('Google')
   @Post('google/logout')
   logout(@Response() res) {
     return this.authService.logout(res);

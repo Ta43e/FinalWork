@@ -14,7 +14,7 @@ import { Types } from 'mongoose';
     export class UserController {
     constructor(private UserService: UserService) {}
 
-    @ApiTags('USERS')
+    @ApiTags('User')
     @Roles(['user', 'admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Get()
@@ -23,7 +23,7 @@ import { Types } from 'mongoose';
       res.status(201).json(profile);
     }
 
-    @ApiTags('USERS')
+    @ApiTags('User')
     @Roles(['user', 'admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('update')
@@ -32,7 +32,7 @@ import { Types } from 'mongoose';
       res.status(201).json(profile);
     }
 
-    @ApiTags('USERS')
+    @ApiTags('User')
     @Roles(['user', 'admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('delete')
@@ -51,7 +51,7 @@ import { Types } from 'mongoose';
       return res.status(200).json(logs);
     }
 
-    @ApiTags('USERS')
+    @ApiTags('User')
     @Roles(['user', 'admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('buy/:id')
@@ -63,11 +63,11 @@ import { Types } from 'mongoose';
 
     @ApiTags('USERS_TEST_LOGIN')
     @UseGuards(AuthenticationGuard)
-    @Post('loginTEST/:email')
-    async loginTEST(@Request() req: Request, @Res() res, @Param('email') email: string) {
-      const loginTEST: string =  await this.UserService.loginTEST(email);
-      res.cookie('jwt', loginTEST, { signed: true, httpOnly: true });
-      res.status(201).json(loginTEST);
+    @Post('localLogin/:email')
+    async localLogin(@Request() req: Request, @Res() res, @Param('email') email: string) {
+      const localLogin: string =  await this.UserService.localLogin(email);
+      res.cookie('jwt', localLogin, { signed: true, httpOnly: true });
+      res.status(201).json(localLogin);
     }
     
   }

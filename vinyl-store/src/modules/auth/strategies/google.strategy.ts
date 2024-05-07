@@ -5,7 +5,6 @@ import { config } from 'dotenv';
 import { Injectable } from '@nestjs/common';
 import { UserDocument, UserSchema } from 'src/schemas/User.schema';
 import { CreateUserDto } from 'src/modules/users/dto/create-user.dto';
-import { UserModule } from 'src/modules/users/users.module';
 import { UserService } from 'src/modules/users/users.service';
 
 config();

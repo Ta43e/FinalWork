@@ -26,7 +26,7 @@ import { Types } from 'mongoose';
     export class VinylController {
     constructor(private VinylService: VinylService) {}
     
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @UseGuards(AuthenticationGuard)
     @Get()
     async showAllVinyl(@Query() query: QueryVinylDto) {
@@ -34,7 +34,7 @@ import { Types } from 'mongoose';
     }
 
     
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @Roles(['admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('add')
@@ -43,7 +43,7 @@ import { Types } from 'mongoose';
       res.status(200).json(result);
     }
 
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @Roles(['admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Delete('delete/:id')
@@ -52,7 +52,7 @@ import { Types } from 'mongoose';
       res.status(200).json(result);
     }
 
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @Roles(['admin'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Put('update/:id')
@@ -61,7 +61,7 @@ import { Types } from 'mongoose';
       res.status(200).json(result);
     }
 
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @Roles(['admin', 'user'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Get('search')
@@ -70,7 +70,7 @@ import { Types } from 'mongoose';
       return res.status(200).json(vinyls);
     }
 
-    @ApiTags('vinyl')
+    @ApiTags('Vinyl')
     @Roles(['admin', 'user'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Get('sort')

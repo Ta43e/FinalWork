@@ -22,6 +22,6 @@ export class AuthService {
 
   async logout(@Response() res) {
     res.clearCookie('jwt');
-    res.status(200).json('Succsess');
+    res.status(200).json('Success');
   }
 }

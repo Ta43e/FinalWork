@@ -3,8 +3,8 @@ import { Reflector } from '@nestjs/core';
 import { Roles } from '../modules/auth/roles.decorator';
 
 export enum Role {
-    User = 'user',
-    Admin = 'admin',
+    User = "USER",
+    Admin = "ADMIN"
   }
 
 @Injectable()

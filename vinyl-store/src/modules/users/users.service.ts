@@ -137,7 +137,7 @@ export class UserService {
         return this.logerModel.find(filter).exec();
       }
 
-      public async loginTEST(email: string) {
+      public async localLogin(email: string) {
         const user: UserDocument = await this.userModel.findOne({email: email})
         const payload = { _id: user._id, role: user.role };
         const jwt: string = await this.jwtService.signAsync(payload);
