@@ -27,7 +27,6 @@ import { Types } from 'mongoose';
     constructor(private VinylService: VinylService) {}
     
     @ApiTags('Vinyl')
-    @UseGuards(AuthenticationGuard)
     @Get()
     async showAllVinyl(@Query() query: QueryVinylDto) {
       return this.VinylService.showAllVinyl(query);

@@ -62,7 +62,6 @@ import { Types } from 'mongoose';
 
 
     @ApiTags('USERS_TEST_LOGIN')
-    @UseGuards(AuthenticationGuard)
     @Post('localLogin/:email')
     async localLogin(@Request() req: Request, @Res() res, @Param('email') email: string) {
       const localLogin: string =  await this.UserService.localLogin(email);
