@@ -15,7 +15,7 @@ import { Types } from 'mongoose';
     constructor(private UserService: UserService) {}
 
     @ApiTags('User')
-    @Roles(['user', 'admin'])
+    @Roles(['USER', 'ADMIN'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Get()
     async showProfile(@Request() req: Request, @Res() res) {
@@ -24,7 +24,7 @@ import { Types } from 'mongoose';
     }
 
     @ApiTags('User')
-    @Roles(['user', 'admin'])
+    @Roles(['USER', 'ADMIN'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('update')
     async updateUser(@Request() req: Request, @Res() res, @Body() updateUserDto: UpdateUserDto) {
@@ -33,7 +33,7 @@ import { Types } from 'mongoose';
     }
 
     @ApiTags('User')
-    @Roles(['user', 'admin'])
+    @Roles(['USER', 'ADMIN'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('delete')
     async deleteUser(@Request() req: Request, @Res() res) {
@@ -43,7 +43,7 @@ import { Types } from 'mongoose';
     }
 
     @ApiTags('Loger')
-    @Roles(['admin'])
+    @Roles(['ADMIN'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Get('log')
     async addReview(@Res() res, @Query() queryLogerDto: QueryLogerDto) {
@@ -52,7 +52,7 @@ import { Types } from 'mongoose';
     }
 
     @ApiTags('User')
-    @Roles(['user', 'admin'])
+    @Roles(['USER', 'ADMIN'])
     @UseGuards(AuthenticationGuard, RolesGuard)
     @Post('buy/:id')
     async buyVinyl(@Request() req: Request, @Res() res, @Param('id') id: string) {

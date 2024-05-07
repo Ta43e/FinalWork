@@ -14,7 +14,7 @@ export class ReviewController {
   
 
   @ApiTags('Review')
-  @Roles(['admin'])
+  @Roles(['ADMIN'])
   @UseGuards(AuthenticationGuard, RolesGuard)
   @Get('/:id')
   async getReview(@Res() res, @Param('id') idVinyl: string, @Query() queryReviewDto: QueryReviewDto) {
@@ -23,7 +23,7 @@ export class ReviewController {
   } 
 
   @ApiTags('Review')
-  @Roles(['admin', 'user'])
+  @Roles(['ADMIN', 'USER'])
   @UseGuards(AuthenticationGuard, RolesGuard)
   @Post('add/:id')
   async addReview(@Req() Req,  @Res() res, @Param('id') idVinyl: string, @Body() createReviewDto: CreateReviewDto) {
@@ -32,7 +32,7 @@ export class ReviewController {
   } 
 
   @ApiTags('Review')
-  @Roles(['admin'])
+  @Roles(['ADMIN'])
   @UseGuards(AuthenticationGuard, RolesGuard)
   @Delete('delete/:id')
   async removeReview(@Res() res, @Param('id') idVinyl: string) {
